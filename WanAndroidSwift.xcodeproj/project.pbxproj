@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2783DB6A2415DBFC000816AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DB692415DBFC000816AC /* AppDelegate.swift */; };
+		2783DB6E2415DBFC000816AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DB6D2415DBFC000816AC /* ViewController.swift */; };
+		2783DB712415DBFC000816AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2783DB6F2415DBFC000816AC /* Main.storyboard */; };
+		2783DB732415DC00000816AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2783DB722415DC00000816AC /* Assets.xcassets */; };
+		2783DB762415DC00000816AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2783DB742415DC00000816AC /* LaunchScreen.storyboard */; };
+		2783DB842415E3EB000816AC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DB832415E3EB000816AC /* BaseViewController.swift */; };
+		2783DB862415E42E000816AC /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DB852415E42E000816AC /* RootTabBarController.swift */; };
+		2783DB882415E4EB000816AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DB872415E4EB000816AC /* HomeViewController.swift */; };
+		2783DB8D2415E57A000816AC /* PublicPlatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DB892415E579000816AC /* PublicPlatViewController.swift */; };
+		2783DB8E2415E57A000816AC /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DB8A2415E579000816AC /* MineViewController.swift */; };
+		2783DB8F2415E57A000816AC /* TreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DB8B2415E579000816AC /* TreeViewController.swift */; };
+		2783DB902415E57A000816AC /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DB8C2415E579000816AC /* ProjectViewController.swift */; };
+		2783DB932415E700000816AC /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2783DB922415E700000816AC /* iconfont.ttf */; };
+		2783DB952415F673000816AC /* UIImage+Iconfont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DB942415F673000816AC /* UIImage+Iconfont.swift */; };
+		2783DB982415F8F4000816AC /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DB972415F8F4000816AC /* Icons.swift */; };
+		2783DB9A24160394000816AC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DB9924160394000816AC /* Theme.swift */; };
+		2783DB9C24160780000816AC /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DB9B24160780000816AC /* UIColor+Hex.swift */; };
+		2783DB9E24161A3B000816AC /* Moya+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DB9D24161A3B000816AC /* Moya+Rx.swift */; };
+		DAC9A17B968599EF1C6D05E9 /* Pods_WanAndroidSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D3642029A572B153FD3092 /* Pods_WanAndroidSwift.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2783DB662415DBFC000816AC /* WanAndroidSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WanAndroidSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2783DB692415DBFC000816AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2783DB6D2415DBFC000816AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2783DB702415DBFC000816AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2783DB722415DC00000816AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2783DB752415DC00000816AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2783DB772415DC00000816AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2783DB832415E3EB000816AC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		2783DB852415E42E000816AC /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
+		2783DB872415E4EB000816AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2783DB892415E579000816AC /* PublicPlatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicPlatViewController.swift; sourceTree = "<group>"; };
+		2783DB8A2415E579000816AC /* MineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
+		2783DB8B2415E579000816AC /* TreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeViewController.swift; sourceTree = "<group>"; };
+		2783DB8C2415E579000816AC /* ProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
+		2783DB922415E700000816AC /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
+		2783DB942415F673000816AC /* UIImage+Iconfont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Iconfont.swift"; sourceTree = "<group>"; };
+		2783DB972415F8F4000816AC /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		2783DB9924160394000816AC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		2783DB9B24160780000816AC /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		2783DB9D24161A3B000816AC /* Moya+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+Rx.swift"; sourceTree = "<group>"; };
+		29D3642029A572B153FD3092 /* Pods_WanAndroidSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WanAndroidSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CAE288AC02E6BDDDAB76D00 /* Pods-WanAndroidSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WanAndroidSwift.release.xcconfig"; path = "Target Support Files/Pods-WanAndroidSwift/Pods-WanAndroidSwift.release.xcconfig"; sourceTree = "<group>"; };
+		DE8A22380341A1FB2DC8E5F0 /* Pods-WanAndroidSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WanAndroidSwift.debug.xcconfig"; path = "Target Support Files/Pods-WanAndroidSwift/Pods-WanAndroidSwift.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2783DB632415DBFC000816AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC9A17B968599EF1C6D05E9 /* Pods_WanAndroidSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2783DB5D2415DBFC000816AC = {
+			isa = PBXGroup;
+			children = (
+				2783DB682415DBFC000816AC /* WanAndroidSwift */,
+				2783DB672415DBFC000816AC /* Products */,
+				ED569D4563DE5FB0BA6C38D2 /* Pods */,
+				F31DE6715B4670979216441D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2783DB672415DBFC000816AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2783DB662415DBFC000816AC /* WanAndroidSwift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2783DB682415DBFC000816AC /* WanAndroidSwift */ = {
+			isa = PBXGroup;
+			children = (
+				2783DB912415E657000816AC /* Resource */,
+				2783DB962415F8E3000816AC /* Utils */,
+				2783DB822415E3D0000816AC /* Extensions */,
+				2783DB812415E3AA000816AC /* Network */,
+				2783DB802415E3A4000816AC /* ViewModels */,
+				2783DB7F2415E38D000816AC /* Views */,
+				2783DB7E2415E386000816AC /* Models */,
+				2783DB7D2415E377000816AC /* ViewControllers */,
+				2783DB692415DBFC000816AC /* AppDelegate.swift */,
+				2783DB6D2415DBFC000816AC /* ViewController.swift */,
+				2783DB6F2415DBFC000816AC /* Main.storyboard */,
+				2783DB722415DC00000816AC /* Assets.xcassets */,
+				2783DB742415DC00000816AC /* LaunchScreen.storyboard */,
+				2783DB772415DC00000816AC /* Info.plist */,
+			);
+			path = WanAndroidSwift;
+			sourceTree = "<group>";
+		};
+		2783DB7D2415E377000816AC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2783DB832415E3EB000816AC /* BaseViewController.swift */,
+				2783DB852415E42E000816AC /* RootTabBarController.swift */,
+				2783DB872415E4EB000816AC /* HomeViewController.swift */,
+				2783DB8A2415E579000816AC /* MineViewController.swift */,
+				2783DB8C2415E579000816AC /* ProjectViewController.swift */,
+				2783DB892415E579000816AC /* PublicPlatViewController.swift */,
+				2783DB8B2415E579000816AC /* TreeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2783DB7E2415E386000816AC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2783DB7F2415E38D000816AC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2783DB802415E3A4000816AC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2783DB812415E3AA000816AC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2783DB822415E3D0000816AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2783DB942415F673000816AC /* UIImage+Iconfont.swift */,
+				2783DB9B24160780000816AC /* UIColor+Hex.swift */,
+				2783DB9D24161A3B000816AC /* Moya+Rx.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2783DB912415E657000816AC /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2783DB922415E700000816AC /* iconfont.ttf */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		2783DB962415F8E3000816AC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2783DB972415F8F4000816AC /* Icons.swift */,
+				2783DB9924160394000816AC /* Theme.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		ED569D4563DE5FB0BA6C38D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DE8A22380341A1FB2DC8E5F0 /* Pods-WanAndroidSwift.debug.xcconfig */,
+				4CAE288AC02E6BDDDAB76D00 /* Pods-WanAndroidSwift.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F31DE6715B4670979216441D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29D3642029A572B153FD3092 /* Pods_WanAndroidSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2783DB652415DBFC000816AC /* WanAndroidSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2783DB7A2415DC00000816AC /* Build configuration list for PBXNativeTarget "WanAndroidSwift" */;
+			buildPhases = (
+				C257C3DBCC355806FFA97067 /* [CP] Check Pods Manifest.lock */,
+				2783DB622415DBFC000816AC /* Sources */,
+				2783DB632415DBFC000816AC /* Frameworks */,
+				2783DB642415DBFC000816AC /* Resources */,
+				780C66C0D3630A49C6A15D84 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WanAndroidSwift;
+			productName = WanAndroidSwift;
+			productReference = 2783DB662415DBFC000816AC /* WanAndroidSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2783DB5E2415DBFC000816AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "余汪送";
+				TargetAttributes = {
+					2783DB652415DBFC000816AC = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 2783DB612415DBFC000816AC /* Build configuration list for PBXProject "WanAndroidSwift" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2783DB5D2415DBFC000816AC;
+			productRefGroup = 2783DB672415DBFC000816AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2783DB652415DBFC000816AC /* WanAndroidSwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2783DB642415DBFC000816AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2783DB932415E700000816AC /* iconfont.ttf in Resources */,
+				2783DB762415DC00000816AC /* LaunchScreen.storyboard in Resources */,
+				2783DB732415DC00000816AC /* Assets.xcassets in Resources */,
+				2783DB712415DBFC000816AC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		780C66C0D3630A49C6A15D84 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WanAndroidSwift/Pods-WanAndroidSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WanAndroidSwift/Pods-WanAndroidSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WanAndroidSwift/Pods-WanAndroidSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C257C3DBCC355806FFA97067 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WanAndroidSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2783DB622415DBFC000816AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2783DB8D2415E57A000816AC /* PublicPlatViewController.swift in Sources */,
+				2783DB9E24161A3B000816AC /* Moya+Rx.swift in Sources */,
+				2783DB882415E4EB000816AC /* HomeViewController.swift in Sources */,
+				2783DB902415E57A000816AC /* ProjectViewController.swift in Sources */,
+				2783DB8F2415E57A000816AC /* TreeViewController.swift in Sources */,
+				2783DB6E2415DBFC000816AC /* ViewController.swift in Sources */,
+				2783DB982415F8F4000816AC /* Icons.swift in Sources */,
+				2783DB952415F673000816AC /* UIImage+Iconfont.swift in Sources */,
+				2783DB8E2415E57A000816AC /* MineViewController.swift in Sources */,
+				2783DB6A2415DBFC000816AC /* AppDelegate.swift in Sources */,
+				2783DB9C24160780000816AC /* UIColor+Hex.swift in Sources */,
+				2783DB9A24160394000816AC /* Theme.swift in Sources */,
+				2783DB862415E42E000816AC /* RootTabBarController.swift in Sources */,
+				2783DB842415E3EB000816AC /* BaseViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2783DB6F2415DBFC000816AC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2783DB702415DBFC000816AC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2783DB742415DC00000816AC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2783DB752415DC00000816AC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2783DB782415DC00000816AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2783DB792415DC00000816AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2783DB7B2415DC00000816AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE8A22380341A1FB2DC8E5F0 /* Pods-WanAndroidSwift.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WanAndroidSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yuxx.WanAndroidSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2783DB7C2415DC00000816AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CAE288AC02E6BDDDAB76D00 /* Pods-WanAndroidSwift.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WanAndroidSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yuxx.WanAndroidSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2783DB612415DBFC000816AC /* Build configuration list for PBXProject "WanAndroidSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2783DB782415DC00000816AC /* Debug */,
+				2783DB792415DC00000816AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2783DB7A2415DC00000816AC /* Build configuration list for PBXNativeTarget "WanAndroidSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2783DB7B2415DC00000816AC /* Debug */,
+				2783DB7C2415DC00000816AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2783DB5E2415DBFC000816AC /* Project object */;
+}

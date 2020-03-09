@@ -1,0 +1,89 @@
+PODS:
+  - Alamofire (4.9.1)
+  - Differentiator (4.0.1)
+  - FlexKit (1.0.1):
+    - Yoga (~> 1.14.0)
+  - HandyJSON (5.0.1)
+  - Kingfisher (5.9.0):
+    - Kingfisher/Core (= 5.9.0)
+  - Kingfisher/Core (5.9.0)
+  - MJRefresh (3.1.17)
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
+  - Result (4.1.0)
+  - RxCocoa (5.0.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.0.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.1)
+  - RxTheme (4.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - SnapKit (5.0.1)
+  - "UITableView+FDTemplateLayoutCell (1.6)"
+  - WSCollectionViewFlowLayout (0.0.4)
+  - Yoga (1.14.0)
+
+DEPENDENCIES:
+  - FlexKit (~> 1.0.1)
+  - HandyJSON (~> 5.0.1)
+  - Kingfisher (~> 5.9.0)
+  - MJRefresh (~> 3.1.12)
+  - Moya (~> 13.0.1)
+  - RxDataSources (~> 4.0.1)
+  - RxSwift (~> 5.0.1)
+  - RxTheme (~> 4.0.0)
+  - SnapKit (~> 5.0.1)
+  - "UITableView+FDTemplateLayoutCell (~> 1.6)"
+  - WSCollectionViewFlowLayout (~> 0.0.4)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Differentiator
+    - FlexKit
+    - HandyJSON
+    - Kingfisher
+    - MJRefresh
+    - Moya
+    - Result
+    - RxCocoa
+    - RxDataSources
+    - RxRelay
+    - RxSwift
+    - RxTheme
+    - SnapKit
+    - "UITableView+FDTemplateLayoutCell"
+    - WSCollectionViewFlowLayout
+    - Yoga
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  FlexKit: 1fb7a7feae4f3937ab75cf6f360e5629d909355f
+  HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
+  Kingfisher: ff98240aebb7302bdc4f1ecd701761030ce18b16
+  MJRefresh: ee5b68f639775462faba4db0fd243baf4d42c2cf
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  RxTheme: 0b642f47c7d197a803c6b9c083964188c34f7ddb
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  WSCollectionViewFlowLayout: f35eb31e9a16b42f7b811d05696487354bbbd439
+  Yoga: cff67a400f6b74dc38eb0bad4f156673d9aa980c
+
+PODFILE CHECKSUM: 82e315b0aba8bf42c731cdff2b4c04af750f91b4
+
+COCOAPODS: 1.8.4
