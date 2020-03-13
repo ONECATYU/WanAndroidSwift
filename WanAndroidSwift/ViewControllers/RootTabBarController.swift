@@ -11,6 +11,16 @@ import RxSwift
 import RxCocoa
 import RxTheme
 
+extension Reactive where Base: UITabBar {
+    var barBackgroundColor: Binder<UIColor?> {
+        return Binder<UIColor?>(self.base) { (bar, color) in
+            let bgColor = color ?? .white
+            let bgImage = bgColor.mapImage
+            bar.backgroundImage = bgImage
+        }
+    }
+}
+
 class RootTabBarController: UITabBarController {
     
     override func viewDidLoad() {
@@ -50,5 +60,19 @@ extension RootTabBarController {
     class func swichTo() {
         let window = UIApplication.shared.delegate?.window
         window??.rootViewController = RootTabBarController()
+    }
+}
+
+extension RootTabBarController {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        guard let traitCollection = previousTraitCollection else { return }
+        
+        /// appTheme 自动跟随系统
+        let isDark = traitCollection.userInterfaceStyle == .dark
+        let themeType: ThemeType = isDark ? .light : .dark
+        if themeType != appTheme.type {
+            appTheme.switch(themeType)
+        }
     }
 }

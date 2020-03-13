@@ -53,13 +53,13 @@ let appTheme = ThemeType.service(initial: .dark)
 
 /// APP font size
 extension UIFont {
-    var title: UIFont {
-        return UIFont.systemFont(ofSize: 16)
+    class var title: UIFont {
+        return UIFont.systemFont(ofSize: 17)
     }
-    var subTitle: UIFont {
-        return UIFont.systemFont(ofSize: 14)
+    class var subTitle: UIFont {
+        return UIFont.systemFont(ofSize: 15)
     }
-    var small: UIFont {
-        return UIFont.systemFont(ofSize: 12)
+    class var small: UIFont {
+        return UIFont.systemFont(ofSize: 13)
     }
 }

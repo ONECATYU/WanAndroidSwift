@@ -7,17 +7,24 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class BaseViewController: UIViewController {
+    
+    lazy var refreshData = PublishSubject<Void>()
+    lazy var loadMoreData = PublishSubject<Void>()
+    
+    lazy var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         appTheme.rx.bind({ $0.backgroundColor }, to: view.rx.backgroundColor)
         if let nav = navigationController {
-            appTheme.rx.bind({ $0.lightBackgroundColor }, to: nav.navigationBar.rx.barTintColor)
+            nav.navigationBar.shadowImage = UIImage()
+            appTheme.rx.bind({ $0.lightBackgroundColor }, to: nav.navigationBar.rx.barBackgroundColor)
         }
     }
     
 }
-
 

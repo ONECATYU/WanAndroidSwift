@@ -23,6 +23,7 @@ enum Iconfont: String {
     
     case aboutMe = "\u{e629}"
     case lock = "\u{e7c6}"
+    case search = "\u{e643}"
 }
 
 extension Iconfont {    
