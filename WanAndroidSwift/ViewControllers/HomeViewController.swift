@@ -34,10 +34,14 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         configViews()
         
-        let refresh = Observable.of(Observable.just(()), listView.refresh).merge()
+        viewModel.loading.asObservable().bind(to: listView.isLoading).disposed(by: disposeBag)
+        viewModel.loading.asObservable().bind(to: showLoading).disposed(by: disposeBag)
+        viewModel.error.asObservable().bind(to: showError).disposed(by: disposeBag)
+        
         let input = HomeViewModel.Input(
-            refresh: refresh,
-            loadMore: listView.loadMore
+            refresh: listView.refresh,
+            loadMore: listView.loadMore,
+            modelSelected: listView.rx.modelSelected(ArticleCellViewModel.self).asDriver()
         )
         let output = viewModel.transform(input: input)
         
@@ -51,13 +55,6 @@ class HomeViewController: BaseViewController {
         .asDriver(onErrorJustReturn: [])
         .drive(listView.rx.items(dataSource: dataSource))
         .disposed(by: disposeBag)
-        
-        output.completion.asDriver(onErrorJustReturn: nil)
-            .drive(onNext: { [weak self] error in
-                self?.listView.mj_header.endRefreshing()
-                self?.listView.mj_footer.endRefreshing()
-            })
-            .disposed(by: disposeBag)
         
         listView.rx.setDelegate(self).disposed(by: disposeBag)
     }
@@ -87,9 +84,9 @@ extension HomeViewController {
                 let cell = listView.dequeueReusableCell(BannerCollectionViewCell.self, for: indexPath)
                 cell.bind(model: item as! [BannerModel])
                 return cell
-            case is ArticleModel:
+            case is ArticleCellViewModel:
                 let cell = listView.dequeueReusableCell(ArticleCollectionViewCell.self, for: indexPath)
-                cell.bind(model: item as! ArticleModel)
+                cell.bind(to: item as! ArticleCellViewModel)
                 return cell
             default:
                 fatalError()
@@ -106,9 +103,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
         switch item {
         case is [BannerModel]:
             return CGSize(width: width, height: 200)
-        case is ArticleModel:
+        case is ArticleCellViewModel:
             let cell = self.listView.templateCell(ArticleCollectionViewCell.self, for: indexPath)
-            cell.bind(model: item as! ArticleModel)
+            cell.bind(to: item as! ArticleCellViewModel)
             return cell.sizeThatFits(CGSize(width: width, height: CGFloat.nan))
         default:
             fatalError()

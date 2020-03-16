@@ -10,9 +10,17 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol ViewModel {
+protocol ViewModelType {
     associatedtype Input
     associatedtype Output
         
     func transform(input: Input) -> Output
+}
+
+class ViewModel {
+    
+    let disposeBag = DisposeBag()
+    
+    lazy var loading = ActivityIndicator()
+    lazy var error = ErrorTracker()
 }

@@ -4,9 +4,13 @@ PODS:
   - FlexKit (1.0.1):
     - Yoga (~> 1.14.0)
   - HandyJSON (5.0.1)
+  - IQKeyboardManagerSwift (6.5.2)
   - Kingfisher (5.9.0):
     - Kingfisher/Core (= 5.9.0)
   - Kingfisher/Core (5.9.0)
+  - MBProgressHUD (1.0.0)
+  - "MBProgressHUD+Add (0.0.2)":
+    - MBProgressHUD (~> 1.0.0)
   - MJRefresh (3.1.17)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
@@ -35,7 +39,9 @@ PODS:
 DEPENDENCIES:
   - FlexKit (~> 1.0.1)
   - HandyJSON (~> 5.0.1)
+  - IQKeyboardManagerSwift
   - Kingfisher (~> 5.9.0)
+  - "MBProgressHUD+Add"
   - MJRefresh (~> 3.1.12)
   - Moya (~> 13.0.1)
   - RxDataSources (~> 4.0.1)
@@ -51,7 +57,10 @@ SPEC REPOS:
     - Differentiator
     - FlexKit
     - HandyJSON
+    - IQKeyboardManagerSwift
     - Kingfisher
+    - MBProgressHUD
+    - "MBProgressHUD+Add"
     - MJRefresh
     - Moya
     - Result
@@ -70,7 +79,10 @@ SPEC CHECKSUMS:
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   FlexKit: 1fb7a7feae4f3937ab75cf6f360e5629d909355f
   HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
+  IQKeyboardManagerSwift: c75366f1f19590e8caeae45fcd5815c9289d6099
   Kingfisher: ff98240aebb7302bdc4f1ecd701761030ce18b16
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  "MBProgressHUD+Add": 65c4d170c083a2a800ad4470d424ad5978f324c3
   MJRefresh: ee5b68f639775462faba4db0fd243baf4d42c2cf
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
@@ -84,6 +96,6 @@ SPEC CHECKSUMS:
   WSCollectionViewFlowLayout: f35eb31e9a16b42f7b811d05696487354bbbd439
   Yoga: cff67a400f6b74dc38eb0bad4f156673d9aa980c
 
-PODFILE CHECKSUM: 82e315b0aba8bf42c731cdff2b4c04af750f91b4
+PODFILE CHECKSUM: df3813139a0dfb423e0c8e63b27889b4e08d0d1a
 
 COCOAPODS: 1.8.4

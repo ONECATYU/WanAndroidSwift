@@ -14,10 +14,35 @@ import RxCocoa
 
 class AstaListView: UICollectionView {
     
-    lazy var refresh = PublishSubject<Void>()
-    lazy var loadMore = PublishSubject<Void>()
+    lazy var refresh: BehaviorSubject<Void> = {
+        let subject = BehaviorSubject<Void>(value: ())
+        mj_header = MJRefreshNormalHeader {
+            subject.onNext(())
+        }
+        return subject
+    }()
     
-    lazy var templateCells = [String: UICollectionViewCell]()
+    lazy var loadMore: PublishSubject<Void> = {
+        let subject = PublishSubject<Void>()
+        mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
+            subject.onNext(())
+        })
+        return subject
+    }()
+    
+    lazy var isLoading: PublishSubject<Bool> = {
+        let isLoading = PublishSubject<Bool>()
+        isLoading.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] loading in
+            if !loading {
+                self?.mj_header?.endRefreshing()
+                self?.mj_footer?.endRefreshing()
+            }
+        }).disposed(by: disposeBag)
+        return isLoading
+    }()
+    
+    private let disposeBag = DisposeBag()
+    private lazy var templateCells = [String: UICollectionViewCell]()
     
     var layout: WSCollectionViewFlowLayout = {
         let layout = WSCollectionViewFlowLayout()
@@ -30,12 +55,6 @@ class AstaListView: UICollectionView {
     init() {
         super.init(frame: .zero, collectionViewLayout: layout)
         backgroundColor = .clear
-        mj_header = MJRefreshNormalHeader { [weak self] in
-            self?.refresh.onNext(())
-        }
-        mj_footer = MJRefreshBackNormalFooter(refreshingBlock: { [weak self] in
-            self?.loadMore.onNext(())
-        })
     }
     
     func templateCell<Cell: UICollectionViewCell>(_ type: Cell.Type, for indexPath: IndexPath) -> Cell {
@@ -52,8 +71,26 @@ class AstaListView: UICollectionView {
         register(type, forCellWithReuseIdentifier: "\(type)")
     }
     
+    func register<View: UICollectionReusableView>(_ type: View.Type, elementKind: String) {
+        register(type, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: "\(type)")
+    }
+    
     func dequeueReusableCell<Cell: UICollectionViewCell>(_ type: Cell.Type, for indexPath: IndexPath) -> Cell {
-        return dequeueReusableCell(withReuseIdentifier: "\(type)", for: indexPath) as! Cell
+        guard let cell = dequeueReusableCell(withReuseIdentifier: "\(type)", for: indexPath) as? Cell else {
+            fatalError("\(type): unregistered")
+        }
+        return cell
+    }
+    
+    func dequeueReusableView<View: UICollectionReusableView>(
+        ofKind elementKind: String,
+        withType type: View.Type,
+        for indexPath: IndexPath
+    ) -> View {
+        guard let view = dequeueReusableSupplementaryView(ofKind: elementKind, withReuseIdentifier: "\(type)", for: indexPath) as? View else {
+            fatalError("\(type), kind: \(elementKind): unregistered")
+        }
+        return view
     }
     
     required init?(coder: NSCoder) {

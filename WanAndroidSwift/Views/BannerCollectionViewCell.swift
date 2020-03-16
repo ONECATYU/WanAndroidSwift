@@ -54,5 +54,6 @@ class BannerCollectionViewCell: UICollectionViewCell {
 extension BannerCollectionViewCell {
     func bind(model: [BannerModel]) {
         infiniteScrollView.dataModels = model.map { $0.imagePath ?? "" }
+        infiniteScrollView.reloadData()
     }
 }

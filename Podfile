@@ -17,5 +17,7 @@ pod 'HandyJSON', '~> 5.0.1'
 pod 'WSCollectionViewFlowLayout', '~> 0.0.4'
 pod 'MJRefresh', '~> 3.1.12'
 pod 'UITableView+FDTemplateLayoutCell', '~> 1.6'
+pod 'MBProgressHUD+Add'
+pod 'IQKeyboardManagerSwift'
 
 end

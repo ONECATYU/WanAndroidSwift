@@ -49,10 +49,22 @@ enum ThemeType: ThemeProvider {
     }
 }
 
-let appTheme = ThemeType.service(initial: .dark)
+let appTheme = { () -> ThemeService<ThemeType> in
+    var type = ThemeType.light
+    if #available(iOS 13, *) {
+        if UITraitCollection.current.userInterfaceStyle == .dark {
+            type = .dark
+        }
+    }
+    return ThemeType.service(initial: type)
+}()
 
 /// APP font size
 extension UIFont {
+    class var largeTitle: UIFont {
+        return UIFont.systemFont(ofSize: 20)
+    }
+    
     class var title: UIFont {
         return UIFont.systemFont(ofSize: 17)
     }

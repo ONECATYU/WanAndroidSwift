@@ -12,6 +12,9 @@ import Moya
 enum Api {
     case banner
     case articles(Int)
+    case collectArticle(Int)
+    case tree
+    case nav
 }
 
 extension Api: TargetType {
@@ -25,11 +28,22 @@ extension Api: TargetType {
             return "/banner/json"
         case .articles(let page):
             return "/article/list/\(page)/json"
+        case .collectArticle(let id):
+            return "/lg/collect/\(id)/json"
+        case .tree:
+            return "/tree/json"
+        case .nav:
+            return "/navi/json"
         }
     }
     
     var method: Moya.Method {
-        return .get
+        switch self {
+        case .collectArticle:
+            return .post
+        default:
+            return .get
+        }
     }
     
     var sampleData: Data {

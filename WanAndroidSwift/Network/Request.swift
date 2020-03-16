@@ -20,6 +20,23 @@ enum RequestError: Error {
     case moya(MoyaError)
 }
 
+extension RequestError {
+    var localizedDescription: String {
+        switch self {
+        case .dataInvalid(_):
+            return "返回数据格式错误"
+        case .modelDeserialize(_):
+            return "数据解析错误"
+        case .loginInvalid:
+            return "您还未登录,请登录后操作"
+        case .server(let msg):
+            return msg
+        case .moya(let moyaErr):
+            return moyaErr.localizedDescription
+        }
+    }
+}
+
 extension MoyaProvider: ReactiveCompatible {}
 
 extension Reactive where Base: MoyaProviderType {
@@ -133,14 +150,19 @@ extension ObservableType where Element == Moya.Response {
             }
         }
     }
-}
-
-
-extension ObservableType {
-    func catchErrorAndComplete(_ onError: @escaping (Error) -> Void) -> Observable<Element> {
-        return catchError { (error) -> Observable<Element> in
-            onError(error)
-            return Observable.empty()
+    
+    func validateSuccess() -> Observable<Bool> {
+        return flatMap { (response) -> Observable<Bool> in
+            return Observable<Bool>.create { (observer) -> Disposable in
+                let (_, reqErr) = response.validate()
+                if let error = reqErr {
+                    observer.onError(error)
+                } else {
+                    observer.onNext(true)
+                    observer.onCompleted()
+                }
+                return Disposables.create()
+            }
         }
     }
 }

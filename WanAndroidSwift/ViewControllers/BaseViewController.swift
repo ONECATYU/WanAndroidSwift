@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import MBProgressHUD_Add
 
 class BaseViewController: UIViewController {
     
@@ -28,3 +29,27 @@ class BaseViewController: UIViewController {
     
 }
 
+extension BaseViewController {
+    var showLoading: Binder<Bool> {
+        return Binder<Bool>(self) { (vc, isLoading) in
+            if isLoading {
+                vc.showHUD()
+            } else {
+                if let hud = vc.hud {
+                    if let isAutoHidden = hud.isAutoHidden, isAutoHidden {
+                        return
+                    }
+                    vc.hideHUD()
+                }
+            }
+        }
+    }
+    
+    var showError: Binder<Error?> {
+        return Binder<Error?>(self) { (vc, error) in
+            if let reqErr = error as? RequestError {
+                vc.showError(msg: reqErr.localizedDescription)
+            }
+        }
+    }
+}

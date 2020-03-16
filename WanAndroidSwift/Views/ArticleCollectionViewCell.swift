@@ -8,7 +8,6 @@
 
 import UIKit
 import FlexKit
-import UITableView_FDTemplateLayoutCell
 
 class ArticleCollectionViewCell: UICollectionViewCell {
     
@@ -101,32 +100,5 @@ extension ArticleCollectionViewCell {
         let label = UILabel()
         label.font = font
         return label
-    }
-}
-
-extension ArticleCollectionViewCell {
-    func bind(model article: ArticleModel) {
-        
-        authorLabel.text = article.displayAuthor
-        timeLabel.text = article.niceDate
-        titleLabel.text = article.title
-        descLabel.text = article.desc
-        originLabel.text = article.displayOrigin
-        
-        newLabel.isHidden = !article.fresh
-        newLabel.yoga.isIncludedInLayout = article.fresh
-        
-        stickLabel.isHidden = !article.isTop
-        stickLabel.yoga.isIncludedInLayout = article.isTop
-        
-        if article.desc == nil || article.desc! == "" {
-            descLabel.isHidden = true
-            descLabel.yoga.isIncludedInLayout = false
-        } else {
-            descLabel.isHidden = false
-            descLabel.yoga.isIncludedInLayout = true
-        }
-        
-        contentView.yoga.markChildrenDirty()
     }
 }
