@@ -7,11 +7,25 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class ProjectViewController: BaseViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+class ProjectRepos: ArticleListRepos {
+    func fetchTabs() -> Observable<[TreeModel]> {
+        return CategorysAPI.provider.rx.request(.project).mapModelList(TreeModel.self, path: "data")
     }
     
+    func fetchArticles(by id: String, at page: Int) -> Observable<[ArticleModel]> {
+        return ArticlesAPI.provider.rx.request(.project(id, page)).mapModelList(ArticleModel.self, path: "data.datas")
+    }
+}
+
+class ProjectViewController: ArticleListViewController {
+    init() {
+        super.init(repos: ProjectRepos())
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

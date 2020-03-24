@@ -27,6 +27,11 @@ class BaseViewController: UIViewController {
         }
     }
     
+    deinit {
+        #if DEBUG
+        print("\(self) deinit")
+        #endif
+    }
 }
 
 extension BaseViewController {

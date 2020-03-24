@@ -28,7 +28,7 @@ class TreeViewModel: ViewModel, ViewModelType {
     
     func transform(input: Input) -> Output {
         
-        let reqTree = ApiProvider()
+        let reqTree = API.provider
             .rx
             .request(.tree)
             .mapModelList(TreeModel.self, path: "data")
@@ -36,7 +36,7 @@ class TreeViewModel: ViewModel, ViewModelType {
             .trackActivity(self.loading)
             .trackErrorJustReturn(self.error, value: .navigate([]))
         
-        let reqNav = ApiProvider()
+        let reqNav = API.provider
             .rx
             .request(.nav)
             .mapModelList(NavigateModel.self, path: "data")

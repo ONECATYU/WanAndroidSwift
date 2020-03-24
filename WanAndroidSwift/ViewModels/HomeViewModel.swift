@@ -21,6 +21,7 @@ class HomeViewModel: ViewModel, ViewModelType {
     struct Output {
         let banners: Observable<[BannerModel]>
         let articles: Observable<[ArticleCellViewModel]>
+        let articleSelected: Driver<ArticleModel>
     }
     
     private var page = 0
@@ -66,7 +67,7 @@ class HomeViewModel: ViewModel, ViewModelType {
                 let viewModel = ArticleCellViewModel(article: model)
                 viewModel.collectTap.flatMapLatest { [weak self] _ -> Observable<Bool> in
                     guard let `self` = self else { return .empty() }
-                    return ApiProvider()
+                    return UserAPI.provider
                         .rx
                         .request(.collectArticle(model.id))
                         .validateSuccess()
@@ -83,14 +84,19 @@ class HomeViewModel: ViewModel, ViewModelType {
             }
         }
         
+        let selected = input.modelSelected
+            .map { $0.article }
+            .filter { $0.id != nil && $0.link != nil }
+        
         return Output(
             banners: banners.asObservable(),
-            articles: articleViewModels.asObservable()
+            articles: articleViewModels.asObservable(),
+            articleSelected: selected
         )
     }
     
     func fetchBanners() -> Observable<[BannerModel]> {
-        return ApiProvider()
+        return API.provider
             .rx
             .request(.banner)
             .mapModelList(BannerModel.self, path: "data")
@@ -98,9 +104,9 @@ class HomeViewModel: ViewModel, ViewModelType {
     }
     
     func fetchArticles(page: Int = 1) -> Observable<[ArticleModel]> {
-        return ApiProvider()
+        return ArticlesAPI.provider
             .rx
-            .request(.articles(page))
+            .request(.home(page))
             .mapModelList(ArticleModel.self, path: "data.datas")
             .catchErrorJustReturn([])
     }

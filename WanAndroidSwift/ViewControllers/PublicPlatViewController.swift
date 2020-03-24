@@ -7,11 +7,25 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class PublicPlatViewController: BaseViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+class PublicPlatRepos: ArticleListRepos {
+    func fetchTabs() -> Observable<[TreeModel]> {
+        return CategorysAPI.provider.rx.request(.publicPlat).mapModelList(TreeModel.self, path: "data")
     }
     
+    func fetchArticles(by id: String, at page: Int) -> Observable<[ArticleModel]> {
+        return ArticlesAPI.provider.rx.request(.publicPlat(id, page)).mapModelList(ArticleModel.self, path: "data.datas")
+    }    
+}
+
+class PublicPlatViewController: ArticleListViewController {
+    init() {
+        super.init(repos: PublicPlatRepos())
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

@@ -56,6 +56,15 @@ class HomeViewController: BaseViewController {
         .drive(listView.rx.items(dataSource: dataSource))
         .disposed(by: disposeBag)
         
+        output.articleSelected.drive(onNext: { [weak self] article in
+            let detailVC = ArticleDetailViewController(
+                id: String(article.id),
+                url: article.link!,
+                name: article.title
+            )
+            self?.navigationController?.pushViewController(detailVC, animated: true)
+            }).disposed(by: disposeBag)
+        
         listView.rx.setDelegate(self).disposed(by: disposeBag)
     }
     
