@@ -19,9 +19,9 @@ extension CategorysAPI: TargetType {
     var path: String {
         switch self {
         case .publicPlat:
-            return "/project/tree/json"
-        case .project:
             return "/wxarticle/chapters/json"
+        case .project:
+            return "/project/tree/json"
         }
     }
 }
