@@ -94,6 +94,7 @@ extension ArticleCollectionViewCell {
             .bind({ $0.primaryColor }, to: newLabel.rx.textColor)
             .bind({ $0.textColor }, to: titleLabel.rx.textColor)
             .bind({ $0.subTextColor }, to: authorLabel.rx.textColor, timeLabel.rx.textColor, descLabel.rx.textColor, originLabel.rx.textColor)
+            .disposed(by: rx.disposeBag)
     }
     
     private func createLabel(font: UIFont = UIFont.small) -> UILabel {

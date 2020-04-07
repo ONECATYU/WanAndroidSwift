@@ -78,5 +78,6 @@ extension ArticleCollectionViewCell {
         .disposed(by: disposeBag)
         
         contentView.yoga.markChildrenDirty()
+        setNeedsLayout()
     }
 }

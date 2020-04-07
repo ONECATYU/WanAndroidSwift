@@ -13,18 +13,32 @@ import MBProgressHUD_Add
 
 class BaseViewController: UIViewController {
     
-    lazy var refreshData = PublishSubject<Void>()
-    lazy var loadMoreData = PublishSubject<Void>()
-    
-    lazy var disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        appTheme.rx.bind({ $0.backgroundColor }, to: view.rx.backgroundColor)
-        if let nav = navigationController {
-            nav.navigationBar.shadowImage = UIImage()
-            appTheme.rx.bind({ $0.lightBackgroundColor }, to: nav.navigationBar.rx.barBackgroundColor)
-        }
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        self.navigationItem.backBarButtonItem = backItem
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
+        bindViewsTheme()
+        bindNavigationBarTheme()
+    }
+    
+    func bindViewsTheme() {
+        appTheme.rx
+        .bind({ $0.backgroundColor }, to: view.rx.backgroundColor)
+        .disposed(by: disposeBag)
+    }
+    
+    func bindNavigationBarTheme() {
+        guard let nav = navigationController else { return }
+        appTheme.rx
+            .bind({ $0.lightBackgroundColor }, to: nav.navigationBar.rx.barBackgroundColor)
+            .bind({ $0.textColor }, to: nav.navigationBar.rx.tintColor)
+            .disposed(by: disposeBag)
     }
     
     deinit {

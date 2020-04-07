@@ -33,21 +33,7 @@ extension TargetType {
 
 let defaultPlugins = { () -> [PluginType] in
     #if DEBUG
-    let jsonDataFormatter: ((Data) -> String) = { data -> String in
-        do {
-            let jsonObj = try JSONSerialization.jsonObject(with: data)
-            let jsonData = try JSONSerialization.data(withJSONObject: jsonObj, options: .prettyPrinted)
-            return String(data: jsonData, encoding: .utf8) ?? String(data: data, encoding: .utf8) ?? ""
-        } catch {
-            return String(data: data, encoding: .utf8) ?? ""
-        }
-    }
-    let logger = NetworkLoggerPlugin(verbose: true) { (data) -> (Data) in
-        let jsonStr = jsonDataFormatter(data)
-        let jsonData = jsonStr.data(using: .utf8)
-        return jsonData ?? data
-    }
-    return [logger]
+    return [NetworkLogger()]
     #else
     return []
     #endif

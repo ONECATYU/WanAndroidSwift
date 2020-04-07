@@ -32,4 +32,8 @@ extension ObservableType {
             return Driver.empty()
         }
     }
+    
+    func filterNil<E>() -> Observable<E> where Element == E? {
+        return self.filter { $0 != nil }.map { $0! }
+    }
 }

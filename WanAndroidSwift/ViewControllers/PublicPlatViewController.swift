@@ -23,6 +23,7 @@ class PublicPlatRepos: ArticleListRepos {
 class PublicPlatViewController: ArticleListViewController {
     init() {
         super.init(repos: PublicPlatRepos())
+        title = "公众号"
     }
     
     required init?(coder: NSCoder) {

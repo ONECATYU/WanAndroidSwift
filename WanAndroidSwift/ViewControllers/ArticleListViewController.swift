@@ -76,7 +76,10 @@ class ArticleListViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         listView.rx.setDelegate(self).disposed(by: disposeBag)
-        
+    }
+    
+    override func bindViewsTheme() {
+        super.bindViewsTheme()
         appTheme.rx
             .bind({ $0.lightBackgroundColor }, to: scrollTabBar.rx.backgroundColor)
             .bind({ $0.textColor }, to: scrollTabBar.rx.textColor)

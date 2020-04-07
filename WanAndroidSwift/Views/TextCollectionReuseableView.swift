@@ -20,6 +20,7 @@ class TextCollectionReuseableView: UICollectionReusableView {
         addSubview(textLabel)
         appTheme.rx
             .bind({ $0.textColor }, to: textLabel.rx.textColor)
+            .disposed(by: rx.disposeBag)
     }
     
     required init?(coder: NSCoder) {

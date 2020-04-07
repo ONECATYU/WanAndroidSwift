@@ -8,9 +8,9 @@
 
 import Foundation
 import Moya
+import Result
 
-
-public final class NetworkLogger: PluginType {
+final class NetworkLogger: PluginType {
     func didReceive(_ result: Result<Moya.Response, MoyaError>, target: TargetType) {
         print("=====================================================")
         print("-> url: \(target.baseURL.absoluteString + target.path)\n")

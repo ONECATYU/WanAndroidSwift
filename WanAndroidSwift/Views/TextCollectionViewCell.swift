@@ -22,6 +22,7 @@ class TextCollectionViewCell: UICollectionViewCell {
         appTheme.rx
             .bind({ $0.textColor }, to: textLabel.rx.textColor)
             .bind({ $0.lightBackgroundColor }, to: contentView.rx.backgroundColor)
+            .disposed(by: rx.disposeBag)
     }
     
     override func layoutSubviews() {

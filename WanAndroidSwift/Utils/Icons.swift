@@ -26,6 +26,8 @@ enum Iconfont: String {
     case search = "\u{e643}"
     case success = "\u{e611}"
     case error = "\u{e609}"
+    case delete = "\u{e65a}"
+    case back = "\u{e712}"
 }
 
 extension Iconfont {    

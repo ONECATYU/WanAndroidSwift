@@ -65,6 +65,13 @@ class ScrollTabBar: UIView {
             .drive(collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
+        tabs.delay(.milliseconds(1), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] (_) in
+                guard let `self` = self else { return }
+                self.updateBottomLinePosition(index: self._selectedIndex, animate: false)
+            })
+            .disposed(by: disposeBag)
+        
         didSelectedIndex
             .subscribeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] index in
@@ -91,10 +98,6 @@ class ScrollTabBar: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         collectionView.frame = self.bounds
-        if bottomLine.frame == .zero && !collectionView.visibleCells.isEmpty {
-            updateBottomLinePosition(index: _selectedIndex, animate: false)
-            didSelectedIndex.onNext(_selectedIndex)
-        }
     }
     
     required init?(coder: NSCoder) {

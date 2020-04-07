@@ -23,6 +23,7 @@ class ProjectRepos: ArticleListRepos {
 class ProjectViewController: ArticleListViewController {
     init() {
         super.init(repos: ProjectRepos())
+        title = "项目"
     }
     
     required init?(coder: NSCoder) {
