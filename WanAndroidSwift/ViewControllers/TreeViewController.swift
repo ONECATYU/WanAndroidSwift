@@ -78,6 +78,12 @@ class TreeViewController: BaseViewController {
         }
     }
     
+    override func bindViewsTheme() {
+        super.bindViewsTheme()
+        appTheme.rx
+            .bind({ $0.backgroundColor }, to: segmentedControl.rx.backgroundColor)
+            .disposed(by: disposeBag)
+    }
 }
 
 extension TreeViewController {

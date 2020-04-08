@@ -65,7 +65,7 @@ class HomeViewModel: ViewModel, ViewModelType {
         let articleViewModels = self.articles.map { models in
             return models.map { model -> ArticleCellViewModel in
                 let viewModel = ArticleCellViewModel(article: model)
-                viewModel.collectTap.flatMapLatest { [weak self] _ -> Observable<Bool> in
+                viewModel.collectTap.flatMapLatest { [weak self] _ -> Observable<Void> in
                     guard let `self` = self else { return .empty() }
                     return UserAPI.provider
                         .rx
@@ -75,8 +75,8 @@ class HomeViewModel: ViewModel, ViewModelType {
                         .trackError(self.error)
                         .catchErrorJustComplete()
                 }
-                .subscribe(onNext: {
-                    model.collect = $0
+                .subscribe(onNext: { 
+                    model.collect = true
                 })
                     .disposed(by: viewModel.disposeBag)
                 

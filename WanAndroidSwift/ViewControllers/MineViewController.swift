@@ -17,10 +17,16 @@ class MineViewController: BaseViewController {
         let icon: Iconfont
         let title: String
         let iconColor: UIColor?
-        init(title: String, iconFont: Iconfont, iconColor: UIColor? = nil) {
+        let vcProvider: () -> UIViewController
+        init(title: String,
+             iconFont: Iconfont,
+             viewController: @escaping @autoclosure () -> UIViewController,
+             iconColor: UIColor? = nil
+        ) {
             self.icon = iconFont
             self.title = title
             self.iconColor = iconColor
+            self.vcProvider = viewController
         }
     }
     
@@ -44,18 +50,11 @@ class MineViewController: BaseViewController {
     
     lazy var dataSource = getDataSource()
     
-    private lazy var currentTheme: BehaviorRelay<Theme> = {
-        let currentTheme = BehaviorRelay<Theme>(value: appTheme.type.associatedObject)
-        currentTheme.subscribe(onNext: { [weak self] theme in
-            self?.tableView.reloadData()
-        })
-            .disposed(by: self.disposeBag)
-        return currentTheme
-    }()
+    private var currentTheme: Theme?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationBarHidden = true
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.top.bottom.centerX.equalTo(self.view)
@@ -75,15 +74,19 @@ class MineViewController: BaseViewController {
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-        appTheme.typeStream
-            .map { $0.associatedObject }
-            .bind(to: currentTheme)
+        tableView.rx.modelSelected(ListItem.self).subscribe(onNext: { [weak self] item in
+            let toVC = item.vcProvider()
+            toVC.hidesBottomBarWhenPushed = true
+            toVC.title = item.title
+            self?.navigationController?.pushViewController(toVC, animated: true)
+        })
             .disposed(by: disposeBag)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        appTheme.attrsStream.subscribe(onNext: { [weak self] theme in
+            self?.currentTheme = theme
+            self?.tableView.reloadData()
+        })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -92,7 +95,8 @@ extension MineViewController {
     func getDataSource() -> RxTableViewSectionedReloadDataSource<SectionModel<Void, ListItem>> {
         return RxTableViewSectionedReloadDataSource<SectionModel<Void, ListItem>>(configureCell: { [weak self] (ds, tableView, indexPath, item) -> UITableViewCell in
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            let theme = self?.currentTheme.value
+            cell.selectionStyle = .none
+            let theme = self?.currentTheme
             cell.imageView?.image = item.icon.image(size: 20, color: (item.iconColor ?? theme?.primaryColor) ?? .blue)
             cell.textLabel?.text = item.title
             cell.accessoryType = .disclosureIndicator
@@ -104,12 +108,29 @@ extension MineViewController {
     
     func fetchData() -> [SectionModel<Void, ListItem>] {
         let section1Items = [
-            ListItem(title: "我的积分", iconFont: .integral),
-            ListItem(title: "我的分享", iconFont: .share),
-            ListItem(title: "我的收藏", iconFont: .heart, iconColor: .red)
+            ListItem(
+                title: "我的积分",
+                iconFont: .integral,
+                viewController: MyIntegralViewController()
+            ),
+            ListItem(
+                title: "我的分享",
+                iconFont: .share,
+                viewController: MyShareViewController()
+            ),
+            ListItem(
+                title: "我的收藏",
+                iconFont: .heart,
+                viewController: MyCollectionViewController(),
+                iconColor: .red
+            )
         ]
         let section2Items = [
-            ListItem(title: "设置", iconFont: .setting)
+            ListItem(
+                title: "设置",
+                iconFont: .setting,
+                viewController: SettingsViewController()
+            )
         ]
         
         let sectionModels = [section1Items, section2Items].map {

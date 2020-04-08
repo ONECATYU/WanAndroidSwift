@@ -151,14 +151,14 @@ extension ObservableType where Element == Moya.Response {
         }
     }
     
-    func validateSuccess() -> Observable<Bool> {
-        return flatMap { (response) -> Observable<Bool> in
-            return Observable<Bool>.create { (observer) -> Disposable in
+    func validateSuccess() -> Observable<Void> {
+        return flatMap { (response) -> Observable<Void> in
+            return Observable<Void>.create { (observer) -> Disposable in
                 let (_, reqErr) = response.validate()
                 if let error = reqErr {
                     observer.onError(error)
                 } else {
-                    observer.onNext(true)
+                    observer.onNext(())
                     observer.onCompleted()
                 }
                 return Disposables.create()

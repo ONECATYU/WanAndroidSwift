@@ -15,6 +15,8 @@ class BaseViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
+    var navigationBarHidden: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +29,11 @@ class BaseViewController: UIViewController {
         bindNavigationBarTheme()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(navigationBarHidden, animated: true)
+    }
+    
     func bindViewsTheme() {
         appTheme.rx
         .bind({ $0.backgroundColor }, to: view.rx.backgroundColor)
@@ -37,7 +44,7 @@ class BaseViewController: UIViewController {
         guard let nav = navigationController else { return }
         appTheme.rx
             .bind({ $0.lightBackgroundColor }, to: nav.navigationBar.rx.barBackgroundColor)
-            .bind({ $0.textColor }, to: nav.navigationBar.rx.tintColor)
+            .bind({ $0.textColor }, to: nav.navigationBar.rx.tintColor, nav.navigationBar.rx.barTintColor, nav.navigationBar.rx.titleColor)
             .disposed(by: disposeBag)
     }
     

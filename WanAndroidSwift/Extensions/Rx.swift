@@ -18,6 +18,11 @@ extension Reactive where Base: UINavigationBar {
             bar.setBackgroundImage(bgImage, for: .default)
         }
     }
+    var titleColor: Binder<UIColor?> {
+        return Binder<UIColor?>(self.base) { (bar, color) in
+            bar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: color ?? .black]
+        }
+    }
 }
 
 extension ObservableType {

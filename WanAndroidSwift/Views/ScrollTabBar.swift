@@ -136,9 +136,10 @@ extension ScrollTabBar {
     typealias TabSectionModel = SectionModel<String, ScrollTabBarData>
     
     private func getDataSource() -> RxCollectionViewSectionedReloadDataSource<TabSectionModel> {
-        return RxCollectionViewSectionedReloadDataSource<TabSectionModel>(configureCell: { (ds, collectionView, indexPath, item) -> UICollectionViewCell in
+        return RxCollectionViewSectionedReloadDataSource<TabSectionModel>(configureCell: { [weak self] (ds, collectionView, indexPath, item) -> UICollectionViewCell in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.reuseID, for: indexPath) as! Cell
             cell.textLabel.text = item.title
+            cell.textLabel.textColor = self?.textColor
             return cell
         })
     }

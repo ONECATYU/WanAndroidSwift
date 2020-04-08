@@ -49,7 +49,7 @@ extension UserModel {
             let json = toJSONString(),
             let data = json.data(using: .utf8)
         else { return }
-        let _ = try? FileUtils.write(data: data, to: UserModel.cachePath)
+        FileUtils.write(data: data, to: UserModel.cachePath)
     }
     
     class func fromLoacl() -> UserModel? {
